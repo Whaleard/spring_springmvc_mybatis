@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        实现自动装配
+            bean标签属性autowire，配置自动装配
+            autowired属性常用两个值：
+                byName根据属性名称注入：bean标签id值和类属性名称一致
+                byType根据属性类型注入：有多个相同类型的bean根据byType注入会报错
+    -->
+    <bean id="emp3" class="com.mi.autowire.Emp3" autowire="byType">
+<!--        <property name="dept2" ref="dept2"></property>-->
+    </bean>
+
+    <bean id="dept2" class="com.mi.autowire.Dept2"></bean>
+
+    <!-- 直接配置数据库连接池 -->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/userDb"></property>-->
+<!--        <property name="username" value="root"></property>-->
+<!--        <property name="password" value="123456"></property>-->
+<!--    </bean>-->
+
+    <!-- 引入外部属性文件配置数据库连接池 -->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${prop.driverClass}"></property>
+        <property name="url" value="${prop.url}"></property>
+        <property name="username" value="${prop.username}"></property>
+        <property name="password" value="${prop.password}"></property>
+    </bean>
+</beans>
