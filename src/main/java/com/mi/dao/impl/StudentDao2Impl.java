@@ -1,5 +1,6 @@
-package com.mi.dao;
+package com.mi.dao.impl;
 
+import com.mi.dao.StudentDao2;
 import org.springframework.stereotype.Repository;
 
 @Repository

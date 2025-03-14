@@ -333,4 +333,74 @@ AOP操作（AspectJ配置文件）
 
 3、在spring配置文件中配置切入点
 
+JdbcTemplate（概念和准备）
+
+1、什么是JdbcTemplate：Spring框架对JDBC进行封装，使用JdbcTemplate方便实现对数据库操作
+
+2、准备工作
+
+（1）引入相关jar包
+
+（2）在spring配置文件中配置数据库连接池
+
+（3）配置JdbcTemplate对象，注入DataSource
+
+（4）创建service类，创建dao，在dao中注入JdbcTemplate对象
+
+JdbcTemplate操作数据库（添加）
+
+1、update(String sql, Object... args)
+
+（1）第一个参数：sql语句
+
+（2）第二个参数：可变参数，设置sql语句值
+
+JdbcTemplate操作数据库（修改和删除）
+
+1、update(String sql, Object... args)
+
+（1）第一个参数：sql语句
+
+（2）第二个参数：可变参数，设置sql语句值
+
+JdbcTemplate操作数据库（查询返回某个值）
+
+1、queryForObject(String sql, Class<T> requiredType)
+
+（1）第一个参数：sql语句
+
+（2）第二个参数：返回类型Class
+
+JdbcTemplate操作数据库（查询返回对象）
+
+1、queryForObject(String sql, RowMapper<T> rowMapper, Object... args)
+
+（1）第一个参数：sql语句
+
+（2）第二个参数：RowMapper接口，返回不同类型数据，使用这个接口里面实现类完成数据封装
+
+（3）第三个参数：可变参数，设置sql语句值
+
+JdbcTemplate操作数据库（查询返回集合）
+
+1、query(String sql, RowMapper<T> rowMapper, Object... args)
+
+（1）第一个参数：sql语句
+
+（2）第二个参数：RowMapper接口，返回不同类型数据，使用这个接口里面实现类完成数据封装
+
+（3）第三个参数：可变参数，设置sql语句值
+
+JdbcTemplate操作数据库（批量操作）
+
+1、批量添加：batchUpdate(String sql, List<Object[]> batchArgs)
+
+（1）第一个参数：sql语句
+
+（2）第二个语句：List集合，添加多条记录数据
+
+1、批量修改：batchUpdate(String sql, List<Object[]> batchArgs)
+
+2、批量删除：batchUpdate(String sql, List<Object[]> batchArgs)
+
 

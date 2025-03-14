@@ -1,4 +1,6 @@
-package com.mi.dao;
+package com.mi.dao.impl;
+
+import com.mi.dao.UserDao2;
 
 public class UserDao2Impl implements UserDao2 {
 

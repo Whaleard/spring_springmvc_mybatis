@@ -1,8 +1,7 @@
 package unit;
 
-import com.mi.dao.UserDao;
 import com.mi.dao.UserDao2;
-import com.mi.dao.UserDao2Impl;
+import com.mi.dao.impl.UserDao2Impl;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;

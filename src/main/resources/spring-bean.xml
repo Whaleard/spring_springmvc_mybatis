@@ -56,7 +56,7 @@
         <property name="userDao" ref="userDao"></property>
     </bean>
 
-    <bean id="userDao" class="com.mi.dao.UserDaoImpl"></bean>
+    <bean id="userDao" class="com.mi.dao.impl.UserDaoImpl"></bean>
 
     <!-- 内部bean -->
     <bean id="emp" class="com.mi.entity.Emp">
