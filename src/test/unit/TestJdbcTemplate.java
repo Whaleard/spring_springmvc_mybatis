@@ -1,9 +1,12 @@
 package unit;
 
+import com.mi.config.SpringConfig;
 import com.mi.entity.Player;
+import com.mi.service.AccountService;
 import com.mi.service.PlayerService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
@@ -156,5 +159,41 @@ public class TestJdbcTemplate {
         for (int i = 1; i <= result.length; i++) {
             System.out.println("第" + i + "条数据删除" + (i > 0 ? "成功" : "失败"));
         }
+    }
+
+    /**
+     * 事务-注解方式
+     */
+    @Test
+    public void test10() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean6.xml");
+
+        AccountService service = context.getBean("accountService", AccountService.class);
+
+        service.accountMoney();
+    }
+
+    /**
+     * 事务-xml配置文件方式
+     */
+    @Test
+    public void test11() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean7.xml");
+
+        AccountService service = context.getBean("accountService", AccountService.class);
+
+        service.accountMoney();
+    }
+
+    /**
+     * 事务-完全注解方式
+     */
+    @Test
+    public void test12() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+        AccountService service = context.getBean("accountService", AccountService.class);
+
+        service.accountMoney();
     }
 }

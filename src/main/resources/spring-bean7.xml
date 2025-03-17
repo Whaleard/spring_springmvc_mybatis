@@ -31,6 +31,23 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!-- 开启事务注解 -->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <!-- 配置通知 -->
+    <tx:advice id="advice">
+        <!-- 配置事务参数 -->
+        <tx:attributes>
+            <!-- 指定在哪个方法上面添加事务 -->
+            <tx:method name="accountMoney" propagation="REQUIRED" />
+            <!-- 以account开头的所有方法 -->
+<!--            <tx:method name="account*" />-->
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置切入点和切面 -->
+    <aop:config>
+        <!-- 配置切入点 -->
+        <aop:pointcut id="pt" expression="execution(* com.mi.service.AccountService.*(..))"/>
+        <!-- 配置切面 -->
+        <aop:advisor advice-ref="advice" pointcut-ref="pt" />
+    </aop:config>
+
 </beans>
