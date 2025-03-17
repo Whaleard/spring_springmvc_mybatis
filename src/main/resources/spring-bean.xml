@@ -12,10 +12,10 @@
             class属性：类全路径（包类路径）
         注：创建对象时，默认执行无参构造方法
     -->
-    <bean id="user" class="com.mi.entity.User"></bean>
+    <bean id="user" class="com.mi.spring.entity.User"></bean>
 
     <!-- set方法注入属性 -->
-    <bean id="book" class="com.mi.entity.Book">
+    <bean id="book" class="com.mi.spring.entity.Book">
         <!--
             使用property完成属性注入
                 name：属性名称
@@ -38,16 +38,16 @@
     </bean>
 
     <!-- 有参构造注入属性 -->
-    <bean id="order" class="com.mi.entity.Order">
+    <bean id="order" class="com.mi.spring.entity.Order">
         <constructor-arg name="name" value="凯迪拉克ct5"></constructor-arg>
         <constructor-arg name="address" value="山东济南"></constructor-arg>
     </bean>
 
     <!-- p名称空间注入（本质还是通过set方法进行注入属性） -->
-    <bean id="book2" class="com.mi.entity.Book2" p:name="麦琪的礼物" p:author="居伊·德·莫泊桑"></bean>
+    <bean id="book2" class="com.mi.spring.entity.Book2" p:name="麦琪的礼物" p:author="居伊·德·莫泊桑"></bean>
 
     <!-- 外部bean -->
-    <bean id="userService" class="com.mi.service.UserService">
+    <bean id="userService" class="com.mi.spring.service.UserService">
         <!--
             注入对象类型属性
                 name属性值：类里面属性名称
@@ -56,36 +56,36 @@
         <property name="userDao" ref="userDao"></property>
     </bean>
 
-    <bean id="userDao" class="com.mi.dao.impl.UserDaoImpl"></bean>
+    <bean id="userDao" class="com.mi.spring.dao.impl.UserDaoImpl"></bean>
 
     <!-- 内部bean -->
-    <bean id="emp" class="com.mi.entity.Emp">
+    <bean id="emp" class="com.mi.spring.entity.Emp">
         <!-- 设置基本类型属性 -->
         <property name="name" value="lucy"></property>
         <property name="gender" value="女"></property>
         <!-- 设置对象类型属性 -->
         <property name="dept">
-            <bean id="dept" class="com.mi.entity.Dept">
+            <bean id="dept" class="com.mi.spring.entity.Dept">
                 <property name="name" value="安保部"></property>
             </bean>
         </property>
     </bean>
 
     <!-- 级联赋值 -->
-    <bean id="emp2" class="com.mi.entity.Emp2">
+    <bean id="emp2" class="com.mi.spring.entity.Emp2">
         <property name="name" value="tom"></property>
         <property name="gender" value="男"></property>
         <property name="dept" ref="dept"></property>
         <!-- 内部级联赋值（优先级高于外部级联赋值） -->
         <property name="dept.name" value="技术部"></property>
     </bean>
-    <bean id="dept" class="com.mi.entity.Dept">
+    <bean id="dept" class="com.mi.spring.entity.Dept">
         <!-- 外部级联赋值 -->
         <property name="name" value="法务部"></property>
     </bean>
 
     <!-- 集合类型属性注入 -->
-    <bean id="student" class="com.mi.entity.Student">
+    <bean id="student" class="com.mi.spring.entity.Student">
         <!-- 数组类型属性注入 -->
         <property name="courses">
             <array>
@@ -124,10 +124,10 @@
     </bean>
 
     <!-- 创建多个对象提供给List -->
-    <bean id="course1" class="com.mi.entity.Course">
+    <bean id="course1" class="com.mi.spring.entity.Course">
         <property name="name" value="spring"></property>
     </bean>
-    <bean id="course2" class="com.mi.entity.Course">
+    <bean id="course2" class="com.mi.spring.entity.Course">
         <property name="name" value="mybatis"></property>
     </bean>
 
@@ -137,20 +137,20 @@
         <value>悲惨世界</value>
     </util:list>
 
-    <bean id="book3" class="com.mi.entity.Book3">
+    <bean id="book3" class="com.mi.spring.entity.Book3">
         <property name="list" ref="bookList"></property>
     </bean>
 
     <!-- 工厂Bean -->
-    <bean id="customBean" class="com.mi.factorybean.CustomBean"></bean>
+    <bean id="customBean" class="com.mi.spring.factorybean.CustomBean"></bean>
 
     <!-- 设置对象实例为多例模式 -->
-    <bean id="book4" class="com.mi.entity.Book4" scope="prototype"></bean>
+    <bean id="book4" class="com.mi.spring.entity.Book4" scope="prototype"></bean>
 
-    <bean id="order2" class="com.mi.entity.Order2" init-method="initMethod" destroy-method="destroyMethod">
+    <bean id="order2" class="com.mi.spring.entity.Order2" init-method="initMethod" destroy-method="destroyMethod">
         <property name="name" value="手机"></property>
     </bean>
 
     <!-- 配置后置处理器 -->
-    <bean id="beanPost" class="com.mi.factorybean.BeanPost"></bean>
+    <bean id="beanPost" class="com.mi.spring.factorybean.BeanPost"></bean>
 </beans>

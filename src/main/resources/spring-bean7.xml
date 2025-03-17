@@ -45,7 +45,7 @@
     <!-- 配置切入点和切面 -->
     <aop:config>
         <!-- 配置切入点 -->
-        <aop:pointcut id="pt" expression="execution(* com.mi.service.AccountService.*(..))"/>
+        <aop:pointcut id="pt" expression="execution(* com.mi.spring.service.AccountService.*(..))"/>
         <!-- 配置切面 -->
         <aop:advisor advice-ref="advice" pointcut-ref="pt" />
     </aop:config>

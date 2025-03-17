@@ -6,14 +6,14 @@
                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 创建对象 -->
-    <bean id="book" class="com.mi.aop.Book"></bean>
+    <bean id="book" class="com.mi.spring.aop.Book"></bean>
 
-    <bean id="bookProxy" class="com.mi.aop.BookProxy"></bean>
+    <bean id="bookProxy" class="com.mi.spring.aop.BookProxy"></bean>
 
     <!-- 配置aop增强 -->
     <aop:config>
         <!-- 切入点 -->
-        <aop:pointcut id="point" expression="execution(* com.mi.aop.Book.buy(..))"/>
+        <aop:pointcut id="point" expression="execution(* com.mi.spring.aop.Book.buy(..))"/>
 
         <!-- 配置切面 -->
         <aop:aspect ref="bookProxy">
