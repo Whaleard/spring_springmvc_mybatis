@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mi.mybatis.mapper.ParameterMapper">
+
+    <select id="getAllEmployee" resultType="com.mi.mybatis.entity.Employee">
+        select * from t_employee
+    </select>
+
+    <select id="getEmployeeByUsername" resultType="com.mi.mybatis.entity.Employee">
+        <!-- select * from t_employee where username = '${username}' -->
+        select * from t_employee where username = #{username}
+    </select>
+
+    <select id="checkLogin" resultType="com.mi.mybatis.entity.Employee">
+        <!-- select * from t_employee where username = '${param1}' and password = '${param2}' -->
+        select * from t_employee where username = #{param1} and password = #{param2}
+    </select>
+
+    <select id="checkLoginByMap" resultType="com.mi.mybatis.entity.Employee">
+        select * from t_employee where username = #{username} and password = #{password}
+    </select>
+
+    <select id="checkLoginByParam" resultType="com.mi.mybatis.entity.Employee">
+        select * from t_employee where username = #{username} and password = #{password}
+    </select>
+
+    <insert id="insertEmployee">
+        insert into t_employee values (null, #{username}, #{password}, #{age}, #{sex}, #{email})
+    </insert>
+</mapper>
