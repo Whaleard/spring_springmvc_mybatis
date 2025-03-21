@@ -32,7 +32,7 @@ public class TestSelect {
     public void test01() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        User user = mapper.getUserById(5);
+        User user = mapper.getUserById(5L);
         System.out.println(user);
     }
 
@@ -65,7 +65,7 @@ public class TestSelect {
     public void test04() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        Map<String, Object> employee = mapper.getUserByIdToMap(5);
+        Map<String, Object> employee = mapper.getUserByIdToMap(5L);
         System.out.println(employee);
     }
 
