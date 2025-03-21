@@ -9,12 +9,14 @@ public interface SQLMapper {
 
     /**
      * 根据用户名模糊查询用户信息
+     * @param username
      * @return
      */
     List<User> getUserByName(@Param("username") String username);
 
     /**
      * 批量删除用户信息
+     * @param ids
      * @return
      */
     int batchDelete(@Param("ids") String ids);
