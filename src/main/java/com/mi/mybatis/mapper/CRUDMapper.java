@@ -1,6 +1,6 @@
 package com.mi.mybatis.mapper;
 
-import com.mi.mybatis.entity.Employee;
+import com.mi.mybatis.entity.User;
 
 import java.util.List;
 
@@ -12,32 +12,32 @@ import java.util.List;
 public interface CRUDMapper {
 
     /**
-     * 添加员工信息
+     * 添加用户信息
      * @return
      */
-    int insertEmployee();
+    int insertUser();
 
     /**
-     * 修改员工信息
+     * 修改用户信息
      * @return
      */
-    int updateEmployee();
+    int updateUser();
 
     /**
-     * 删除员工信息
+     * 删除用户信息
      * @return
      */
-    int deleteEmployee();
+    int deleteUser();
 
     /**
-     * 根据id查询员工信息
+     * 根据id查询用户信息
      * @return
      */
-    Employee getEmployeeById();
+    User getUserById();
 
     /**
-     * 查询所有的员工信息
+     * 查询所有的用户信息
      * @return
      */
-    List<Employee> getAllUser();
+    List<User> getAllUser();
 }

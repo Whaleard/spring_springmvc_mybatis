@@ -1,6 +1,6 @@
 package unit.mybatis;
 
-import com.mi.mybatis.entity.Employee;
+import com.mi.mybatis.entity.User;
 import com.mi.mybatis.mapper.SelectMapper;
 import com.mi.mybatis.util.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -32,8 +32,8 @@ public class TestSelect {
     public void test01() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        Employee employee = mapper.getEmployeeById(5);
-        System.out.println(employee);
+        User user = mapper.getUserById(5);
+        System.out.println(user);
     }
 
     /**
@@ -43,7 +43,7 @@ public class TestSelect {
     public void test02() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        List<Employee> list = mapper.getAllEmployee();
+        List<User> list = mapper.getAllUser();
         System.out.println(list);
     }
 
@@ -65,7 +65,7 @@ public class TestSelect {
     public void test04() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        Map<String, Object> employee = mapper.getEmployeeByIdToMap(5);
+        Map<String, Object> employee = mapper.getUserByIdToMap(5);
         System.out.println(employee);
     }
 

@@ -1,6 +1,6 @@
 package unit.mybatis;
 
-import com.mi.mybatis.entity.Employee;
+import com.mi.mybatis.entity.User;
 import com.mi.mybatis.mapper.CRUDMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -38,7 +38,7 @@ public class TestCRUD {
         // 获取mapper接口对象
         // todo 底层使用代理模式
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
-        int result = mapper.insertEmployee();
+        int result = mapper.insertUser();
         System.out.println(result);
     }
 
@@ -53,7 +53,7 @@ public class TestCRUD {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
-        int result = mapper.updateEmployee();
+        int result = mapper.updateUser();
         System.out.println(result);
     }
 
@@ -68,7 +68,7 @@ public class TestCRUD {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
-        int result = mapper.deleteEmployee();
+        int result = mapper.deleteUser();
         System.out.println(result);
     }
 
@@ -83,8 +83,8 @@ public class TestCRUD {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
-        Employee employee = mapper.getEmployeeById();
-        System.out.println(employee);
+        User user = mapper.getUserById();
+        System.out.println(user);
     }
 
     /**
@@ -98,7 +98,7 @@ public class TestCRUD {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
-        List<Employee> list = mapper.getAllUser();
+        List<User> list = mapper.getAllUser();
         System.out.println(list);
     }
 }

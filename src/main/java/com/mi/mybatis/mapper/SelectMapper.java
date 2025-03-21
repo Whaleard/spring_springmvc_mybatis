@@ -1,6 +1,6 @@
 package com.mi.mybatis.mapper;
 
-import com.mi.mybatis.entity.Employee;
+import com.mi.mybatis.entity.User;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,39 +10,39 @@ import java.util.Map;
 public interface SelectMapper {
 
     /**
-     * 根据id查询员工信息（返回值为实体对象）
+     * 根据id查询用户信息（返回值为实体对象）
      * @param id
      * @return
      */
-    Employee getEmployeeById(@Param("id") Integer id);
+    User getUserById(@Param("id") Integer id);
 
     /**
-     * 查询所有员工信息（返回值为list集合，集合元素为实体类对象）
+     * 查询所有用户信息（返回值为list集合，集合元素为实体类对象）
      * @return
      */
-    List<Employee> getAllEmployee();
+    List<User> getAllUser();
 
     /**
-     * 查询员工总数
+     * 查询用户总数
      * @return
      */
     Integer getCount();
 
     /**
-     * 根据id查询员工信息（返回值为map集合）
+     * 根据id查询用户信息（返回值为map集合）
      * @param id
      * @return
      */
-    Map<String, Object> getEmployeeByIdToMap(@Param("id") Integer id);
+    Map<String, Object> getUserByIdToMap(@Param("id") Integer id);
 
     /**
-     * 查询所有员工信息（返回值为list集合，集合元素为map集合）
+     * 查询所有用户信息（返回值为list集合，集合元素为map集合）
      * @return
      */
     List<Map<String, Object>> getAllUserToListOfMap();
 
     /**
-     * 查询所有员工信息（返回值为map集合）
+     * 查询所有用户信息（返回值为map集合）
      * @return
      */
     @MapKey("id")

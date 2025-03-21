@@ -5,28 +5,28 @@
 <mapper namespace="com.mi.mybatis.mapper.SelectMapper">
 
 
-    <select id="getEmployeeById" resultType="com.mi.mybatis.entity.Employee">
-        select * from t_employee where id = #{id}
+    <select id="getUserById" resultType="com.mi.mybatis.entity.User">
+        select * from t_user where id = #{id}
     </select>
 
-    <select id="getAllEmployee" resultType="com.mi.mybatis.entity.Employee">
-        select * from t_employee
+    <select id="getAllUser" resultType="com.mi.mybatis.entity.User">
+        select * from t_user
     </select>
 
     <select id="getCount" resultType="java.lang.Integer">
-        select count(*) from t_employee
+        select count(*) from t_user
     </select>
 
-    <select id="getEmployeeByIdToMap" resultType="java.util.Map">
-        select * from t_employee where id = #{id}
+    <select id="getUserByIdToMap" resultType="java.util.Map">
+        select * from t_user where id = #{id}
     </select>
 
     <select id="getAllUserToListOfMap" resultType="java.util.Map">
-        select * from t_employee
+        select * from t_user
     </select>
 
     <select id="getAllUserToMap" resultType="java.util.Map">
-        select * from t_employee
+        select * from t_user
     </select>
 
 </mapper>

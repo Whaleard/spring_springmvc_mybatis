@@ -1,6 +1,6 @@
 package unit.mybatis;
 
-import com.mi.mybatis.entity.Employee;
+import com.mi.mybatis.entity.User;
 import com.mi.mybatis.mapper.ParameterMapper;
 import com.mi.mybatis.util.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -41,7 +41,7 @@ public class TestParameter {
     public void test01() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
-        List<Employee> list = mapper.getAllEmployee();
+        List<User> list = mapper.getAllUser();
         System.out.println(list);
     }
 
@@ -52,8 +52,8 @@ public class TestParameter {
     public void test02() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
-        Employee employee = mapper.getEmployeeByUsername("张三");
-        System.out.println(employee);
+        User user = mapper.getUserByUsername("张三");
+        System.out.println(user);
     }
 
     /**
@@ -63,8 +63,8 @@ public class TestParameter {
     public void test03() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
-        Employee employee = mapper.checkLogin("张三", "123456");
-        System.out.println(employee);
+        User user = mapper.checkLogin("张三", "123456");
+        System.out.println(user);
     }
 
     /**
@@ -77,8 +77,8 @@ public class TestParameter {
         Map<String, Object> map = new HashMap<>();
         map.put("username", "张三");
         map.put("password", "123456");
-        Employee employee = mapper.checkLoginByMap(map);
-        System.out.println(employee);
+        User user = mapper.checkLoginByMap(map);
+        System.out.println(user);
     }
 
     /**
@@ -88,7 +88,7 @@ public class TestParameter {
     public void test05() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
-        int result = mapper.insertEmployee(new Employee(null, "李四", "123456", 23, "男", "12345@qq.com"));
+        int result = mapper.insertUser(new User(null, "李四", "123456", 23, "男", "12345@qq.com"));
         System.out.println(result);
     }
 
@@ -99,7 +99,7 @@ public class TestParameter {
     public void test06() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         ParameterMapper mapper = sqlSession.getMapper(ParameterMapper.class);
-        Employee employee = mapper.checkLoginByParam("张三", "123456");
-        System.out.println(employee);
+        User user = mapper.checkLoginByParam("张三", "123456");
+        System.out.println(user);
     }
 }
