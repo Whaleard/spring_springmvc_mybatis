@@ -1,6 +1,5 @@
 package com.mi.mybatis.mapper;
 
-import com.mi.mybatis.entity.Employee;
 import com.mi.mybatis.entity.User;
 import org.apache.ibatis.annotations.Param;
 
