@@ -2,7 +2,7 @@ package com.mi.mybatis.entity;
 
 public class User {
 
-    private Integer id;
+    private Long id;
 
     private String username;
 
@@ -17,7 +17,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String username, String password, Integer age, String sex, String email) {
+    public User(Long id, String username, String password, Integer age, String sex, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -26,11 +26,11 @@ public class User {
         this.email = email;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

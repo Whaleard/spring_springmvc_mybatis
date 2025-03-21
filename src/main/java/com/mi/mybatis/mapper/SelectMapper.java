@@ -14,7 +14,7 @@ public interface SelectMapper {
      * @param id
      * @return
      */
-    User getUserById(@Param("id") Integer id);
+    User getUserById(@Param("id") Long id);
 
     /**
      * 查询所有用户信息（返回值为list集合，集合元素为实体类对象）
@@ -33,7 +33,7 @@ public interface SelectMapper {
      * @param id
      * @return
      */
-    Map<String, Object> getUserByIdToMap(@Param("id") Integer id);
+    Map<String, Object> getUserByIdToMap(@Param("id") Long id);
 
     /**
      * 查询所有用户信息（返回值为list集合，集合元素为map集合）
