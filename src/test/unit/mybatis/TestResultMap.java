@@ -1,12 +1,16 @@
 package unit.mybatis;
 
+import com.mi.mybatis.entity.Dept;
 import com.mi.mybatis.entity.Emp;
+import com.mi.mybatis.mapper.DeptMapper;
 import com.mi.mybatis.mapper.EmpMapper;
 import com.mi.mybatis.util.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestResultMap {
 
@@ -46,11 +50,49 @@ public class TestResultMap {
             3、分步查询
      */
 
+    /**
+     * association处理关联关系
+     */
     @Test
     public void test03() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         Emp emp = mapper.getEmpAndDept(5L);
         System.out.println(emp);
+    }
+
+    /**
+     * 分步查询
+     */
+    @Test
+    public void test04() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp emp = mapper.getEmpAndDeptByStepFirst(5L);
+        // 延迟加载
+        System.out.println(emp.getEmpName());
+    }
+
+    /*
+        处理一对多的映射关系：
+            1、collection
+            2、分步查询
+     */
+
+    @Test
+    public void test05() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept dept = mapper.getDeptAndEmp(1L);
+        System.out.println(dept);
+    }
+
+    @Test
+    public void test06() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept dept = mapper.getDeptAndEmpByStepFirst(2L);
+        // 延迟加载
+        System.out.println(dept.getDeptName());
     }
 }

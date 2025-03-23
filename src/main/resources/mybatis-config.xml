@@ -12,6 +12,14 @@
     <!-- 引入properties文件 -->
     <properties resource="jdbc.properties" />
 
+    <!-- 设置Mybatis的全局配置 -->
+    <settings>
+        <!-- 将下划线自动映射为驼峰：emp_name映射为empName -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <!-- 开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
     <!-- 设置xml文件中resultType返回值的类型别名 -->
     <typeAliases>
         <!--
