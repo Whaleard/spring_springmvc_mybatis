@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mi.mybatis.mapper.DynamicSQLMapper">
+
+    <!-- 设置sql片段 -->
+    <sql id="empColumns">
+        eid, emp_name, age, sex, email
+    </sql>
+
+    <select id="getEmpByCondition" resultType="com.mi.mybatis.entity.Emp">
+        select
+            <!-- 引用sql片段 -->
+            <include refid="empColumns" />
+        from
+            t_emp
+        <!--
+            where标签：
+                当标签中有内容时，会自动生成where关键字，并且将第一个条件前的and或or去掉
+                当标签中没有内容时，不生成where关键字
+                注意：where标签不能将条件后多余的and或or去掉
+            -->
+        <where>
+            <!-- if标签：根据test属性所对应的表达式决定标签中的内容是否需要拼接到SQL中 -->
+            <if test="empName != null and empName != ''">
+                emp_name = #{empName}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+        </where>
+    </select>
+
+    <select id="getEmpByCondition2" resultType="com.mi.mybatis.entity.Emp">
+        select * from t_emp
+        <!--
+            trim标签：
+                若标签中有内容时：
+                    prefix|suffix：在trim标签中内容最前面或最后面添加指定内容
+                    prefixOverrides|suffixOverrides：将trim标签中内容最前面或最后面指定内容去掉
+                若标签中没有内容时：
+                    trim标签失效
+        -->
+        <trim prefix="where" suffixOverrides="and|or">
+            <if test="empName != null and empName != ''">
+                emp_name = #{empName} and
+            </if>
+            <if test="age != null and age != ''">
+                age = #{age} and
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex} and
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getEmpByChoose" resultType="com.mi.mybatis.entity.Emp">
+        select * from t_emp
+        <where>
+            <!--
+                choose、when、otherwise相当于if...else if...else
+                when至少要有一个，otherwise最多只能有一个
+            -->
+            <choose>
+                <when test="empName != null and empName != ''">
+                    emp_name = #{empName}
+                </when>
+                <when test="age != null and age != ''">
+                    and age = #{age}
+                </when>
+                <when test="sex != null and sex != ''">
+                    and sex = #{sex}
+                </when>
+                <when test="email != null and email != ''">
+                    and email = #{email}
+                </when>
+                <otherwise>
+                    did = #{did}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <delete id="batchDeleteByArray">
+        delete from t_emp where eid in
+        <!--
+            <foreach collection="eids" item="eid" separator="or">
+                eid = #{eid}
+            </foreach>
+        -->
+        <foreach collection="eids" item="eid" open="(" close=")" separator=",">
+            #{eid}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertByList">
+        insert into t_emp values
+        <!--
+            foreach标签
+                collection：设置需要循环的数组或集合
+                item：表示数组或集合中的每一个数据
+                separator：循环体之间的分隔符
+                open：foreach标签所循环的内容的开始
+                close：foreach标签所循环的内容的结束
+        -->
+        <foreach collection="emps" item="emp" separator=",">
+            (null, #{emp.empName}, #{emp.age}, #{emp.sex}, #{emp.email}, null)
+        </foreach>
+    </insert>
+</mapper>
