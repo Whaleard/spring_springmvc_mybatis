@@ -1,6 +1,8 @@
 package com.mi.mybatis.entity;
 
-public class Emp {
+import java.io.Serializable;
+
+public class Emp implements Serializable {
 
     private Long eid;
 
