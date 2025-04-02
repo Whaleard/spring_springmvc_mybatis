@@ -43,4 +43,14 @@ public class RequestMappingController {
         // 返回视图名称
         return "success";
     }
+
+    /*
+        在restful风格中，当请求路径中含有某些数据时，就可以在相应的@RequestMapping注解的value属性中通过占位符{xxx}表示传输的数据，再通过@PathVariable注解，将占位符所表示的数据赋值给方法的形参
+     */
+    @RequestMapping("/testPath/{id}/{username}")
+    public String testPath(@PathVariable("id") Long id, @PathVariable("username") String username) {
+        System.out.println("id：" + id);
+        System.out.println("username：" + username);
+        return "success";
+    }
 }
