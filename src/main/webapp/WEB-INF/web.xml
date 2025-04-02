@@ -16,8 +16,14 @@
         <!-- 配置springMVC配置文件的位置和名称 -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springmvc.xml</param-value>
+            <param-value>classpath:springmvc-config.xml</param-value>
         </init-param>
+        <!--
+            将前端控制器DispatcherServlet的初始化时间提前到服务器启动时间
+                正数或0‌：表示容器在服务器启动时加载并初始化该Servlet，数值越小，优先级越高，0为最高优先级。当值相同时，容器会根据声明顺序进行加载‌
+                负数或没有指定：表示该Servlet在首次请求时被容器加载
+        -->
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>springMvc</servlet-name>
