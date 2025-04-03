@@ -20,11 +20,10 @@ public class ParamController {
     /**
      * servlet原生api：通过HttpServletRequest获取请求参数
      * @param request
-     * @param response
      * @return
      */
     @RequestMapping("/testServletAPI")
-    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+    public String testServletAPI(HttpServletRequest request) {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         // 参数名相同时通过getParameterValues()获取字符串数组

@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>首页</h1>
+    <h4>RequestMapping注解</h4>
     <a th:href="@{/requestMapping/testRequestMapping}">测试RequestMapping注解的位置</a><br />
     <a th:href="@{/requestMapping/testRequestMapping}">测试RequestMapping注解的value属性值为字符串数组-->通过testRequestMapping请求访问</a><br />
     <a th:href="@{/requestMapping/test}">测试RequestMapping注解的value属性值为字符串数组-->通过/test请求访问</a><br />
@@ -15,5 +16,16 @@
     </form>
     <a th:href="@{/requestMapping/testParams(username='admin')}">测试RequestMapping注解的param属性</a><br />
     <a th:href="@{/requestMapping/testPath/1/admin}">测试RequestMapping支持路径中的占位符</a><br />
+    <h4>域对象共享数据</h4>
+    <h5>RequestScope</h5>
+    <a th:href="@{/testRequestByServletAPI}">通过ServletAPI向request域对象共享数据</a><br />
+    <a th:href="@{/testModelAndView}">通过ModelAndView向request域对象共享数据</a><br />
+    <a th:href="@{/testModel}">通过Model向request域对象共享数据</a><br />
+    <a th:href="@{/testMap}">通过Map向request域对象共享数据</a><br />
+    <a th:href="@{/testModelMap}">通过ModelMap向request域对象共享数据</a><br />
+    <h5>SessionScope</h5>
+    <a th:href="@{/testSession}">通过ServletAPI向session域对象共享数据</a><br />
+    <h5>ApplicationScope</h5>
+    <a th:href="@{/testApplication}">通过ServletAPI向application域对象共享数据</a><br />
 </body>
 </html>
