@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  *
  * 在注解里面value属性值可以省略不写：默认值是类名称，首字母小写
  *
- * @author Mr MC
+ * @author Mr.MC
  */
 @Service(value = "studentService")
 public class StudentService {

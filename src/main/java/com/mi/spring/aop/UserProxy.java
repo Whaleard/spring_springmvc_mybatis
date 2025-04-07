@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 增强类
  *
- * @author Mr MC
+ * @author Mr.MC
  */
 @Component
 @Aspect // 生成代理对象

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * 被增强类
  *
- * @author Mr MC
+ * @author Mr.MC
  */
 @Component
 public class User2 {
