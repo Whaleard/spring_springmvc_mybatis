@@ -26,6 +26,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- 配置处理请求方式put和delete的HiddenHttpMethodFilter -->
+    <filter>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- 配置springMVC的前端控制器，对浏览器发送的请求进行统一处理 -->
     <servlet>
         <description>spring mvc servlet</description>
