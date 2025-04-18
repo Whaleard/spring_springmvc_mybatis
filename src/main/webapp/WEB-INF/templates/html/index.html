@@ -51,6 +51,10 @@
     <div id="app">
         <a @click="testAxios" th:href="@{/testAxios}">SpringMVC处理ajax请求</a>
     </div>
+    <h5>Interceptor拦截器</h5>
+    <a th:href="@{/testInterceptor}">测试Interceptor拦截器</a>
+    <h5>SimpleMappingExceptionResolver异常处理器</h5>
+    <a th:href="@{/testExceptionHandler}">测试SimpleMappingExceptionResolver异常处理器</a>
 
     <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
     <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>

@@ -25,4 +25,15 @@ public class IndexController {
     public String toError() {
         return "error";
     }
+
+    @RequestMapping("/testInterceptor")
+    public String testInterceptor() {
+        return "success";
+    }
+
+    @RequestMapping("/testExceptionHandler")
+    public String testExceptionHandler() {
+        int result = 1 / 0;
+        return "success";
+    }
 }

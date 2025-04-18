@@ -48,4 +48,38 @@
 
     <!-- 配置文件上传解析器，将上传的文件封装为MultipartFile -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <!-- 通过bean标签或者ref标签进行配置的方式都是对DispatcherServlet处理的所有请求进行拦截 -->
+<!--        <bean class="com.mi.springmvc.interceptor.FirstInterceptor"></bean>-->
+<!--        <ref bean="firstInterceptor"></ref>-->
+        <!--
+            通过mvc:mapping设置需要拦截的请求，通过mvc:exclude-mapping设置不需要拦截的请求
+            拦截路径："/*"代表一层目录，"/**"代表所有请求
+        -->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/**"/>-->
+<!--            <mvc:exclude-mapping path="/"/>-->
+<!--            <ref bean="firstInterceptor"></ref>-->
+<!--        </mvc:interceptor>-->
+
+        <ref bean="firstInterceptor"></ref>
+        <ref bean="secondInterceptor"></ref>
+    </mvc:interceptors>
+
+    <!-- 配置异常处理 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!--
+                    properties的键表示处理器方法执行过程中出现的异常
+                    properties的值表示若出现指定异常时，跳转到指定页面的视图名称
+                -->
+                <prop key="java.lang.ArithmeticException">error</prop>
+            </props>
+        </property>
+        <!-- 设置将异常信息共享在请求域中，value值对应键名 -->
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean>
 </beans>
