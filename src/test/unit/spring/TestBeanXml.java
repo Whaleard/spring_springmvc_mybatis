@@ -14,7 +14,7 @@ public class TestBeanXml {
      */
     @Test
     public void test01() {
-        // 1、加载spring配置文件
+        // 1、加载spring配置文件，加载配置文件时，会创建配置文件中配置的bean实例对象。
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean.xml");
 
         // 2、获取配置中创建的对象
