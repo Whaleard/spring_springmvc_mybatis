@@ -41,6 +41,8 @@
     <bean id="order" class="com.mi.spring.entity.Order">
         <constructor-arg name="name" value="凯迪拉克ct5"></constructor-arg>
         <constructor-arg name="address" value="山东济南"></constructor-arg>
+        <!-- 这里也可以根据参数索引进行注入 -->
+<!--        <constructor-arg index="0" value="凯迪拉克ct5"></constructor-arg>-->
     </bean>
 
     <!-- p名称空间注入（本质还是通过set方法进行注入属性） -->
