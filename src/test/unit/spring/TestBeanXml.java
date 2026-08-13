@@ -4,8 +4,10 @@ import com.mi.spring.autowire.Emp3;
 import com.mi.spring.entity.*;
 import com.mi.spring.service.UserService;
 import org.junit.Test;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class TestBeanXml {
 
@@ -18,6 +20,26 @@ public class TestBeanXml {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean.xml");
 
         // 2、获取配置中创建的对象
+        User user = context.getBean("user", User.class);
+
+        System.out.println(user);
+        user.add();
+    }
+
+    /**
+     * BeanFactory与ApplicationContext接口加载xml配置文件创建对象
+     *  BeanFactory懒加载，加载配置文件时，不会创建bean实例对象，只有当获取bean实例对象时，才会创建bean实例对象。
+     *  ApplicationContext加载配置文件时，就会创建bean实例对象。
+     *
+     * 注：对于spring框架来说，推荐使用ApplicationContext接口加载配置文件创建对象。
+     *    将耗时耗资源的行为，放在项目启动时进行处理，减小服务器运行时压力。
+     */
+    @Test
+    public void test011() {
+        // 1、加载spring配置文件，此时不会创建bean实例对象
+        BeanFactory context = new ClassPathXmlApplicationContext("spring-bean.xml");
+
+        // 2、获取配置中创建的对象，此时才会创建bean实例对象
         User user = context.getBean("user", User.class);
 
         System.out.println(user);
