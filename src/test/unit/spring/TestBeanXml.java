@@ -47,6 +47,21 @@ public class TestBeanXml {
     }
 
     /**
+     * FileSystemXmlApplicationContext与ClassPathXmlApplicationContext加载xml配置文件
+     *  FileSystemXmlApplicationContext：加载文件系统中的xml配置文件
+     *  ClassPathXmlApplicationContext：加载类路径中的xml配置文件
+     */
+    @Test
+    public void test012() {
+        ApplicationContext context = new FileSystemXmlApplicationContext("D:\\test\\spring_springmvc_mybatis\\src\\main\\resources\\spring-bean.xml");
+
+        User user = context.getBean("user", User.class);
+
+        System.out.println(user);
+        user.add();
+    }
+
+    /**
      * spring基于xml方式通过bean标签配置对象创建并通过set方法注入属性
      */
     @Test
