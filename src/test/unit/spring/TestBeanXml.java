@@ -5,6 +5,7 @@ import com.mi.spring.entity.*;
 import com.mi.spring.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -206,8 +207,11 @@ public class TestBeanXml {
 
         // 2、获取配置创建的对象
         Course course = context.getBean("customBean", Course.class);
+        // 使用"&"前缀获取FactoryBean实例本身，该实例可调用FactoryBean接口的方法
+        FactoryBean factoryBean = context.getBean("&customBean", FactoryBean.class);
 
         System.out.println(course);
+        System.out.println(factoryBean);
     }
 
     /**
