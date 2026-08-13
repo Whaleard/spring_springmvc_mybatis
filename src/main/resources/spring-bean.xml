@@ -146,7 +146,16 @@
     <!-- 工厂Bean -->
     <bean id="customBean" class="com.mi.spring.factorybean.CustomBean"></bean>
 
-    <!-- 设置对象实例为多例模式 -->
+    <!--
+        scope属性：设置对象作用域
+            singleton：单例模式（默认值，每次获取对象时，都会返回同一个对象）
+            prototype：多例模式（每次获取对象时，都会创建一个新的对象）
+            request：每次请求（web应用中可用，每次http请求都会创建一个新的对象，也就是说每个request作用域内的请求只创建一个实例）
+            session：每次会话（web应用中可用，每次http会话都会创建一个新的对象，也就是说每个session作用域内的会话只创建一个实例）
+            global session：每次全局会话（只在porlet的web应用程序中才有意义，每次http全局会话都会创建一个新的对象，普通web应用中作用同session）
+
+        设置对象实例为多例模式
+     -->
     <bean id="book4" class="com.mi.spring.entity.Book4" scope="prototype"></bean>
 
     <bean id="order2" class="com.mi.spring.entity.Order2" init-method="initMethod" destroy-method="destroyMethod">
