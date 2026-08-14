@@ -11,14 +11,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-/*
-    @Configuration：定义配置类，代替xml配置文件
-    @ComponentScan：开启注解扫描
-    @EnableAspectJAutoProxy：开启AspectJ生成代理对象，实现AOP功能
-    @EnableTransactionManagement：开启事务
+/**
+ * @Configuration：定义配置类，代替xml配置文件
+ * @ComponentScan：开启注解扫描
+ * @EnableAspectJAutoProxy：开启AspectJ生成代理对象，实现AOP功能
+ * @EnableTransactionManagement：开启事务
  */
 @Configuration
-@ComponentScan(basePackages = {"com.mi"})
+@ComponentScan(basePackages = {"com.mi.spring"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableTransactionManagement
 public class SpringConfig {
