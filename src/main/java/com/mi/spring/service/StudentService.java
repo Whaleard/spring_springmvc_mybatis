@@ -18,23 +18,25 @@ import javax.annotation.Resource;
 @Service(value = "studentService")
 public class StudentService {
 
-    // 通过@Value注解给属性注入值
+    /**
+     * 通过@Value注解给属性注入值
+     */
     @Value(value = "tom")
     private String name;
 
-    /*
-        注入属性
-        @Quailifier必须搭配@Autowired一起使用
-        在同一个接口有多个实现类的情况下，可以根据不同实现类的名称进行注入
+    /**
+     * 注入属性
+     *  @Quailifier必须搭配@Autowired一起使用
+     *  在同一个接口有多个实现类的情况下，可以根据不同实现类的名称进行注入
      */
     @Autowired
     @Qualifier(value = "studentDaoImpl2")
     private StudentDao studentDao;
 
-    /*
-        根据类型进行注入
-        @Resource：根据类型进行注入
-        @Resource(name="xxx")：根据名称进行注入
+    /**
+     * 根据类型进行注入
+     *  @Resource：根据类型进行注入
+     *  @Resource(name="xxx")：根据名称进行注入
      */
     @Resource
     private StudentDao2 studentDao2;
