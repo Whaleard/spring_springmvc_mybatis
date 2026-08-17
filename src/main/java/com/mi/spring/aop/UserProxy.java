@@ -15,7 +15,9 @@ import org.springframework.stereotype.Component;
 @Order(3)   // 设置多个增强类优先级
 public class UserProxy {
 
-    // 相同切入点抽取
+    /**
+     * 相同切入点抽取
+     */
     @Pointcut(value = "execution(* com.mi.spring.aop.User2.add(..))")
     public void point() {
 
@@ -65,13 +67,13 @@ public class UserProxy {
      * 环绕通知
      */
     @Around(value = "point()")
-    public void around(ProceedingJoinPoint point) throws Throwable {
+    public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("=================");
         System.out.println("around before......");
         System.out.println("=================");
 
         // 被增强的方法执行
-        point.proceed();
+        joinPoint.proceed();
 
         System.out.println("=================");
         System.out.println("around after......");
