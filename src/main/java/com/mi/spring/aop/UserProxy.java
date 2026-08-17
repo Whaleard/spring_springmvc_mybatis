@@ -34,7 +34,7 @@ public class UserProxy {
     }
 
     /**
-     * 返回通知
+     * 返回通知：有异常不执行。
      */
     @AfterReturning(value = "point()")
     public void afterReturning() {
@@ -44,7 +44,7 @@ public class UserProxy {
     }
 
     /**
-     * 后置通知
+     * 后置通知：不管有没有异常，都会执行。
      */
     @After(value = "point()")
     public void after() {
