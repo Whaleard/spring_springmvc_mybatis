@@ -40,7 +40,7 @@ public class PlayerDaoImpl implements PlayerDao {
     }
 
     @Override
-    public Integer selectTotal() {
+    public int selectTotal() {
         String sql = "select count(*) from t_player";
         return jdbcTemplate.queryForObject(sql, Integer.class);
     }
