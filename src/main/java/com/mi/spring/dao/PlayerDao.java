@@ -27,7 +27,7 @@ public interface PlayerDao {
     /**
      * 查询表记录数
      */
-    Integer selectTotal();
+    int selectTotal();
 
     /**
      * 查询返回对象
