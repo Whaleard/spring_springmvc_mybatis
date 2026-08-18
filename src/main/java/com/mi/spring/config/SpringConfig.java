@@ -24,6 +24,10 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     /**
+     * Spring配置类中@Bean方法定义的Bean名称命名规则
+     *  未指定名称时，Bean名称默认等于方法名。
+     *  指定名称时，@Bean(name = "xxx")或@Bean("xxx")，Bean名称等于指定字符串；若传多个值，第一个为住名称，其余为别名。
+     *
      * 创建数据库连接池
      * @return
      */
