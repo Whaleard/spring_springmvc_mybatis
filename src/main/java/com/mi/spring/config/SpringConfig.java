@@ -48,6 +48,13 @@ public class SpringConfig {
 
     /**
      * 被@Bean修饰的方法入参自动注入，是因为Spring在解析配置类时，将方法参数视为‌依赖点‌，默认按‌@Autowired规则（先按类型、再按名称/@Primary）‌从容器中查找并装配对应Bean。
+     * 方法参数‌隐式等价于标注了@Autowired‌，无需显式书写；若参数类型在容器中存在唯一候选Bean则直接注入，多个则按优先级规则决议，无匹配则报错。
+     *
+     * 注入决议优先级
+     *  ‌类型匹配‌：筛选容器中所有与参数类型兼容的Bean；
+     *  @Primary优先‌：若存在多个同类型Bean，优先选择标注@Primary者；
+     *  名称匹配‌：若无@Primary，则尝试将‌参数名‌与Bean名称（默认是方法名）比对，一致者胜出；
+     *  歧义报错‌：上述步骤仍无法唯一确定时，抛出NoUniqueBeanDefinitionException。
      *
      * 创建JdbcTemplate对象
      * @param dataSource
