@@ -12,6 +12,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
+ * Spring初始化Bean规则：
+ *  在Spring框架中，当使用@Configuration注解标注一个类时，Spring容器会认为这个类是用来定义bean的。
+ *  当在这个类中通过@Bean注解标注的方法时，这些方法会被Spring容器识别为工厂方法，用于生成bean实例。
+ *  Spring容器启动时‌默认会初始化@Bean定义的单例Bean‌，但若配置了‌懒加载（@Lazy）‌或Bean作用域为‌非单例（如 prototype）‌，则不会在启动时初始化。
+ *
+ *
+ *
  * @Configuration：定义配置类，代替xml配置文件
  * @ComponentScan：开启注解扫描
  * @EnableAspectJAutoProxy：开启AspectJ生成代理对象，实现AOP功能
