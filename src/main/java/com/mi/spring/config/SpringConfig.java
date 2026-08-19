@@ -17,8 +17,6 @@ import javax.sql.DataSource;
  *  当在这个类中通过@Bean注解标注的方法时，这些方法会被Spring容器识别为工厂方法，用于生成bean实例。
  *  Spring容器启动时‌默认会初始化@Bean定义的单例Bean‌，但若配置了‌懒加载（@Lazy）‌或Bean作用域为‌非单例（如 prototype）‌，则不会在启动时初始化。
  *
- *
- *
  * @Configuration：定义配置类，代替xml配置文件
  * @ComponentScan：开启注解扫描
  * @EnableAspectJAutoProxy：开启AspectJ生成代理对象，实现AOP功能
@@ -49,8 +47,10 @@ public class SpringConfig {
     }
 
     /**
+     * 被@Bean修饰的方法入参自动注入，是因为Spring在解析配置类时，将方法参数视为‌依赖点‌，默认按‌@Autowired规则（先按类型、再按名称/@Primary）‌从容器中查找并装配对应Bean。
+     *
      * 创建JdbcTemplate对象
-     * @param dataSource 到ioc容器中根据类型找到dataSource
+     * @param dataSource
      * @return
      */
     @Bean
