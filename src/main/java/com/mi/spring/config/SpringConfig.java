@@ -51,10 +51,15 @@ public class SpringConfig {
      * 方法参数‌隐式等价于标注了@Autowired‌，无需显式书写；若参数类型在容器中存在唯一候选Bean则直接注入，多个则按优先级规则决议，无匹配则报错。
      *
      * 注入决议优先级
-     *  ‌类型匹配‌：筛选容器中所有与参数类型兼容的Bean；
-     *  @Primary优先‌：若存在多个同类型Bean，优先选择标注@Primary者；
-     *  名称匹配‌：若无@Primary，则尝试将‌参数名‌与Bean名称（默认是方法名）比对，一致者胜出；
+     *  ‌类型匹配‌：筛选容器中所有与参数类型兼容的Bean。
+     *  @Primary优先‌：若存在多个同类型Bean，优先选择标注@Primary者。
+     *  名称匹配‌：若无@Primary，则尝试将‌参数名‌与Bean名称（默认是方法名）比对，一致者胜出。
      *  歧义报错‌：上述步骤仍无法唯一确定时，抛出NoUniqueBeanDefinitionException。
+     *
+     * 补充说明
+     *  可显式使用@Qualifier("beanName")强制指定名称注入，覆盖默认名称匹配逻辑。
+     *  基本类型（如 String、int）若需注入配置值，应配合@Value("${...}")，不参与Bean查找。
+     *  该机制仅作用于@Configuration类中的@Bean方法，普通类中的方法参数不会因此自动注入。
      *
      * 创建JdbcTemplate对象
      * @param dataSource
