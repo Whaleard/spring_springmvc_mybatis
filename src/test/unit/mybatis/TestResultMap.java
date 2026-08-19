@@ -8,9 +8,7 @@ import com.mi.mybatis.util.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TestResultMap {
 
