@@ -5,13 +5,24 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 开启注解 -->
+    <!--
+        开启注解
+            1.如果不配置context:annotation-config的话，我们使用@Resource、@PostConstruct、@PreDestroy等注解就必须在配置文件声明CommonAnnotationBeanPostProcessor，
+              使用@PersistenceContext注解就必须声明PersistenceAnnotationBeanPostProcessor，
+              使用@Autowired注解就必须声明AutowiredAnnotationBeanPostProcessor，
+              如果想使用@Required的注解就必须声明RequiredAnnotationBeanPostProcessor。
+            2.如果配置了context:annotation-config，就相当于我们隐式地向spring注册了以上四个bean，我们不用声明这些bean就可以使用这些注解了。
+     -->
 <!--        <context:annotation-config />-->
     <!--
         开启组件扫描
             如果扫描多个包
                 1、多个包使用逗号隔开
                 2、扫描到所有包的统一上层目录
+
+        注：context:component-scan除了具有context:annotation-config的功能，
+           还可以在指定的包下扫描以及注册bean，还具有自动将带有@component，@service，@Repository等注解的对象注册到spring容器中的功能，
+           所以使用了context:component-scan就可以将context:annotation-config移除。
      -->
     <context:component-scan base-package="com.mi.spring" />
 
