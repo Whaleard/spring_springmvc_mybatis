@@ -158,6 +158,19 @@
      -->
     <bean id="book4" class="com.mi.spring.entity.Book4" scope="prototype"></bean>
 
+    <!--
+        在Spring框架中，有多种方式可以定义bean中的方法为初始化方法：
+            1、在XML配置文件中，可以通过<bean>标签的init-method属性来指定一个初始化方法。这个方法必须是void类型，并且没有参数。
+            2、在Java配置类或组件中，可以使用@PostConstruct注解来标记一个方法作为初始化方法。
+            3、Spring提供了一个InitializingBean接口，可以让bean实现这个接口，并实现它的afterPropertiesSet方法。这个方法将在所有的bean属性被设置之后调用。
+            4、如果使用的是基于Java的配置，可以在@Bean注解中使用initMethod属性来指定初始化方法。
+
+        在Spring框架中，有多种方式可以定义bean中的方法为销毁方法：
+            1、在XML配置文件中，可以通过<bean>标签的destroy-method属性来指定一个销毁方法。这个方法必须是void类型，并且没有参数。
+            2、在Java配置类或组件中，可以使用@PreDestroy注解来标记一个方法作为销毁方法。
+            3、Spring提供了一个DisposableBean接口，可以让bean实现这个接口，并实现它的destroy方法。这个方法将在bean实例被销毁时调用。
+            4、如果使用的是基于Java的配置，可以在@Bean注解中使用destroyMethod属性来指定销毁方法。
+     -->
     <bean id="order2" class="com.mi.spring.entity.Order2" init-method="initMethod" destroy-method="destroyMethod">
         <property name="name" value="手机"></property>
     </bean>
