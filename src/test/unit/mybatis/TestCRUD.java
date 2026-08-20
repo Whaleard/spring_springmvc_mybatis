@@ -31,14 +31,14 @@ public class TestCRUD {
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         // 获取SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
+        // SqlSession代表java程序和数据库之间的会话（HttpSession是java程序和浏览器之间的会话）
         // 获取SqlSession
-        SqlSession sqlSession = sqlSessionFactory.openSession(true);
-        // 提交事务
-        // sqlSession.commit();
-        // 获取mapper接口对象
-        // todo 底层使用代理模式
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 获取mapper接口对象，底层使用代理模式，生成接口的实现类
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
         int result = mapper.insertUser();
+        // 手动提交事务
+        sqlSession.commit();
         System.out.println(result);
     }
 
@@ -51,6 +51,7 @@ public class TestCRUD {
     public void test02() throws IOException {
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+        // 设置自动提交事务
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
         CRUDMapper mapper = sqlSession.getMapper(CRUDMapper.class);
         int result = mapper.updateUser();
