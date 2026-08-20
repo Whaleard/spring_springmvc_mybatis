@@ -5,8 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * 在Spring框架中，如果使用了多个数据源或多个数据库环境，并且希望对这些环境分别使用不同的事务管理器，
+ * 可以通过@Transactional注解的value属性（或者在Spring 4.1及以后版本中使用transactionManager属性）来指定具体使用哪个事务管理器。
+ */
 @Service
-@Transactional
+@Transactional(value = "transactionManager", rollbackFor = Exception.class)
 public class AccountService {
 
     @Autowired
