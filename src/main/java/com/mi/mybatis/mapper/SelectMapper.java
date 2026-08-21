@@ -43,6 +43,10 @@ public interface SelectMapper {
 
     /**
      * 查询所有用户信息（返回值为map集合）
+     *
+     * MapKey注解会将返回的多条数据封装成一个Map集合。
+     * Map集合的键值就是MapKey注解的值，键对应的值就是数据库中的一条记录。
+     *
      * @return
      */
     @MapKey("id")
