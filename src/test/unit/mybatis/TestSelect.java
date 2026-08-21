@@ -9,19 +9,18 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Map;
 
-/*
-    Mybatis的各种查询功能：
-        1、若查询出来的数据只有一条
-            （1）通过实体类对象接收
-            （2）通过list集合接收
-            （3）通过map集合接收
-        2、若查询出来的数据有多条
-            （1）通过list集合接收，集合元素为实体类对象
-            （2）通过list集合接收，集合元素为map集合
-            （3）在mapper接口的方法上添加@MapKey注解，就可以将每条数据作为mmap集合的值，@MapKey注解中的字段对应的值作为键
-            注意：一定不能通过实体类对象接收，此时会抛异常TooManyResultsException
-    Mybatis中设置了默认的类型别名
-
+/**
+ * Mybatis的各种查询功能：
+ *      1、若查询出来的数据只有一条
+ *          （1）通过实体类对象接收
+ *          （2）通过list集合接收
+ *          （3）通过map集合接收
+ *      2、若查询出来的数据有多条
+ *          （1）通过list集合接收，集合元素为实体类对象
+ *          （2）通过list集合接收，集合元素为map集合
+ *          （3）在mapper接口的方法上添加@MapKey注解，就可以将每条数据作为map集合的值，@MapKey注解中的字段对应的值作为键
+ *      注意：一定不能通过实体类对象接收，此时会抛异常TooManyResultsException
+ *  Mybatis中设置了默认的类型别名
  */
 public class TestSelect {
 
