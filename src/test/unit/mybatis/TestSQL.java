@@ -15,8 +15,6 @@ public class TestSQL {
      */
     @Test
     public void test01() {
-        // todo sqlsession和connection
-        // todo sqlsessionutils.getsqlsession()和sqlsessionfactory.opensession()
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SQLMapper mapper = sqlSession.getMapper(SQLMapper.class);
         List<User> list = mapper.getUserByName("张三");

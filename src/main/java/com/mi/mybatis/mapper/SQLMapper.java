@@ -22,7 +22,7 @@ public interface SQLMapper {
     int batchDelete(@Param("ids") String ids);
 
     /**
-     * 查询用户表中数据
+     * 查询指定表中数据
      * @param tableName
      * @return
      */
