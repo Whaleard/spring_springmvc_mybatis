@@ -29,7 +29,7 @@ public class TestDynamicSQL {
     public void test02() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
-        List<Emp> list = mapper.getEmpByCondition2(new Emp(null, "刘旭", 23, "男", "12345@qq.com"));
+        List<Emp> list = mapper.getEmpByCondition2(new Emp(null, "刘旭", 23, "男", null));
         System.out.println(list);
     }
 

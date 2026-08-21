@@ -19,8 +19,8 @@
             where标签：
                 当标签中有内容时，会自动生成where关键字，并且将第一个条件前的and或or去掉
                 当标签中没有内容时，不生成where关键字
-                注意：where标签不能将条件后多余的and或or去掉
-            -->
+            注：where标签不能将条件后多余的and或or去掉
+        -->
         <where>
             <!-- if标签：根据test属性所对应的表达式决定标签中的内容是否需要拼接到SQL中 -->
             <if test="empName != null and empName != ''">
