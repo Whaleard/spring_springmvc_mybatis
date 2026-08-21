@@ -52,6 +52,13 @@
         </association>
     </resultMap>
 
+    <!--
+        处理多对一映射关系方式三：分步查询
+
+        分步查询的优点：可以实现延迟加载。
+            lazyLoadingEnabled：延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。
+            aggressiveLazyLoading：当开启时，任何方法的调用都会加载该对象的所有属性。否则，每个属性会按需加载。
+     -->
     <resultMap id="empAndDeptResultMap3" type="com.mi.mybatis.entity.Emp">
         <id property="eid" column="eid"></id>
         <result property="empName" column="emp_name"></result>
@@ -68,10 +75,11 @@
         <association property="dept"
                      select="com.mi.mybatis.mapper.DeptMapper.getEmpAndDeptByStepLast"
                      column="did"
-                     fetchType="eager">
+                     fetchType="lazy">
         </association>
     </resultMap>
 
+    <!-- 通过全局配置mapUnderscoreToCamelCase，将下划线命名自动转换为驼峰命名 -->
     <select id="getAllEmp" resultType="com.mi.mybatis.entity.Emp">
         <!-- select eid, emp_name empName, age, sex, email from t_emp -->
         select * from t_emp

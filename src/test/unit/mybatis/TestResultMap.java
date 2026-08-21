@@ -10,14 +10,22 @@ import org.junit.Test;
 
 import java.util.List;
 
+/**
+ *  解决字段名和属性名不一致的情况：
+ *      1、为字段起别名，保持和属性名一致
+ *      2、设置全局配置，将下划线自动映射为驼峰：mapUnderscoreToCamelCase
+ *      3、通过resultMap设置自定义的映射关系
+ *
+ *  处理多对一的映射关系：
+ *      1、级联属性赋值
+ *      2、association
+ *      3、分步查询
+ *
+ *  处理一对多的映射关系：
+ *      1、collection
+ *      2、分步查询
+ */
 public class TestResultMap {
-
-    /*
-        解决字段名和属性名不一致的情况：
-            1、为字段起别名，保持和属性名一致
-            2、设置全局配置，将下划线自动映射为驼峰：mapUnderscoreToCamelCase
-            3、通过resultMap设置自定义的映射关系
-     */
 
     /**
      * 通过resultType定义返回值
@@ -41,13 +49,6 @@ public class TestResultMap {
         System.out.println(list);
     }
 
-    /*
-        处理多对一的映射关系：
-            1、级联属性赋值
-            2、association
-            3、分步查询
-     */
-
     /**
      * association处理关联关系
      */
@@ -69,13 +70,9 @@ public class TestResultMap {
         Emp emp = mapper.getEmpAndDeptByStepFirst(5L);
         // 延迟加载
         System.out.println(emp.getEmpName());
+        System.out.println("===========================================");
+        System.out.println(emp.getDept());
     }
-
-    /*
-        处理一对多的映射关系：
-            1、collection
-            2、分步查询
-     */
 
     @Test
     public void test05() {
