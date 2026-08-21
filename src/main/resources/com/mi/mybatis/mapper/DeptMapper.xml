@@ -26,8 +26,7 @@
         <collection property="emps"
                     select="com.mi.mybatis.mapper.EmpMapper.getDeptAndEmpByStepLast"
                     column="did"
-                    fetchType="eager">
-
+                    fetchType="lazy">
         </collection>
     </resultMap>
 
