@@ -301,7 +301,8 @@ AOP操作（准备）
     举例1：对com.atguigu.dao.BookDao类里面的add进行增强：execution(* com.atguigu.dao.BookDao.add(..))
     举例2：对com.atguigu.dao.BookDao类里面的所有方法进行增强：execution(* com.atguigu.dao.BookDao.*(..))
     举例3：对com.atguigu.dao包里面所有类，类里面所有方法进行增强：execution(* com.atguigu.dao.*.*(..))
-    注：execution表达式中*表示匹配任意权限修饰符，表达式中..表示参数列表。
+注：execution表达式中*表示匹配任意权限修饰符，表达式中..表示参数列表。
+
 ②annotation([注解全路径])
     举例：@annotation(org.springframework.transaction.annotation.Transactional)
 
