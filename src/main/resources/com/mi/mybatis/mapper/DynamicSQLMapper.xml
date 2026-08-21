@@ -76,13 +76,13 @@
                     emp_name = #{empName}
                 </when>
                 <when test="age != null and age != ''">
-                    and age = #{age}
+                    age = #{age}
                 </when>
                 <when test="sex != null and sex != ''">
-                    and sex = #{sex}
+                    sex = #{sex}
                 </when>
                 <when test="email != null and email != ''">
-                    and email = #{email}
+                    email = #{email}
                 </when>
                 <otherwise>
                     did = #{did}
