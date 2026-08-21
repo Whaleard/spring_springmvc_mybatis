@@ -226,11 +226,11 @@ public class TestBeanXml {
         Book book = context.getBean("book", Book.class);
         Book book2 = context.getBean("book", Book.class);
 
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println(book);
         System.out.println(book2);
         System.out.println(book == book2);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -245,11 +245,11 @@ public class TestBeanXml {
         Book4 book4 = context.getBean("book4", Book4.class);
         Book4 book4_2 = context.getBean("book4", Book4.class);
 
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println(book4);
         System.out.println(book4_2);
         System.out.println(book4 == book4_2);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**

@@ -70,7 +70,7 @@ public class TestResultMap {
         Emp emp = mapper.getEmpAndDeptByStepFirst(5L);
         // 延迟加载
         System.out.println(emp.getEmpName());
-        System.out.println("===========================================");
+        System.out.println("==============================================================");
         System.out.println(emp.getDept());
     }
 
@@ -89,7 +89,7 @@ public class TestResultMap {
         Dept dept = mapper.getDeptAndEmpByStepFirst(2L);
         // 延迟加载
         System.out.println(dept.getDeptName());
-        System.out.println("===========================================");
+        System.out.println("==============================================================");
         System.out.println(dept.getEmps());
     }
 }

@@ -14,9 +14,9 @@ public class UserProxy2 {
 
     @Before(value = "execution(* com.mi.spring.aop.User2.add(..))")
     public void before() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("before2......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -24,15 +24,15 @@ public class UserProxy2 {
      */
     @Around(value = "execution(* com.mi.spring.aop.User2.add(..))")
     public void around(ProceedingJoinPoint point) throws Throwable {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("around2 before......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
 
         // 被增强的方法执行
         point.proceed();
 
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("around2 after......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

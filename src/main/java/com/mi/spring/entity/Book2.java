@@ -24,9 +24,9 @@ public class Book2 {
     }
 
     public void print() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("name：" + name);
         System.out.println("author：" + author);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

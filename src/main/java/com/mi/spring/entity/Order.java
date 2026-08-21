@@ -20,9 +20,9 @@ public class Order {
     }
 
     public void print() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("name：" + name);
         System.out.println("address：" + address);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

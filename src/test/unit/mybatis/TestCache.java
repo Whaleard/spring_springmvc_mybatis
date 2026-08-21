@@ -28,16 +28,16 @@ public class TestCache {
         CacheMapper mapper = sqlSession.getMapper(CacheMapper.class);
         Emp emp = mapper.getEmpById(5L);
         System.out.println(emp);
-        System.out.println("====================================");
+        System.out.println("==============================================================");
         // 手动清空缓存
         // sqlSession.clearCache();
         Emp emp2 = mapper.getEmpById(5L);
         System.out.println(emp2);
-        System.out.println("====================================");
+        System.out.println("==============================================================");
         CacheMapper mapper2 = sqlSession.getMapper(CacheMapper.class);
         Emp emp3 = mapper2.getEmpById(5L);
         System.out.println(emp3);
-        System.out.println("====================================");
+        System.out.println("==============================================================");
         SqlSession sqlSession2 = SqlSessionUtils.getSqlSession();
         CacheMapper mapper3 = sqlSession2.getMapper(CacheMapper.class);
         Emp emp4 = mapper3.getEmpById(5L);
@@ -64,7 +64,7 @@ public class TestCache {
             Emp emp = mapper.getEmpById(5L);
             System.out.println(emp);
             sqlSession.close();
-            System.out.println("====================================");
+            System.out.println("==============================================================");
             SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
             CacheMapper mapper2 = sqlSession2.getMapper(CacheMapper.class);
             Emp emp2 = mapper2.getEmpById(5L);

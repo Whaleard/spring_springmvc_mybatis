@@ -28,9 +28,9 @@ public class UserProxy {
      */
     @Before(value = "point()")    // @Before注解表示作为前置通知
     public void before() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("before......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -38,9 +38,9 @@ public class UserProxy {
      */
     @AfterReturning(value = "point()")
     public void afterReturning() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("afterReturning......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -48,9 +48,9 @@ public class UserProxy {
      */
     @After(value = "point()")
     public void after() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("after......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -58,9 +58,9 @@ public class UserProxy {
      */
     @AfterThrowing(value = "point()")
     public void afterThrowing() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("afterThrowing......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 
     /**
@@ -68,15 +68,15 @@ public class UserProxy {
      */
     @Around(value = "point()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("around before......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
 
         // 被增强的方法执行
         joinPoint.proceed();
 
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("around after......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

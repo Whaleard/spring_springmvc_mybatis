@@ -8,8 +8,8 @@ public class StudentDaoImpl2 implements StudentDao {
 
     @Override
     public void add() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("dao add2......");
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

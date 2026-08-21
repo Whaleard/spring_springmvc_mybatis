@@ -42,11 +42,11 @@ public class StudentService {
     private StudentDao2 studentDao2;
 
     public void add() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("service add......");
         studentDao.add();
         studentDao2.sub();
         System.out.println("name：" + name);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

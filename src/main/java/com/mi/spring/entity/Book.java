@@ -37,11 +37,11 @@ public class Book {
     }
 
     public void print() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("name：" + name);
         System.out.println("author：" + author);
         System.out.println("address：" + address);
         System.out.println("content：" + content);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

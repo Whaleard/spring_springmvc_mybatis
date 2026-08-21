@@ -9,8 +9,8 @@ public class Dept {
     }
 
     public void print() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println("dept.name：" + name);
-        System.out.println("=================");
+        System.out.println("==============================================================");
     }
 }

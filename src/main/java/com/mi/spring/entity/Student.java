@@ -53,13 +53,13 @@ public class Student {
     }
 
     public void print() {
-        System.out.println("=================");
+        System.out.println("==============================================================");
         System.out.println(Arrays.toString(courses));
         System.out.println(list);
         System.out.println(map);
         System.out.println(set);
         System.out.println(courseList);
-        System.out.println("=================");
+        System.out.println("==============================================================");
 
     }
 }
