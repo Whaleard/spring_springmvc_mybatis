@@ -12,6 +12,13 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * MyBatis缓存查询的顺序
+ *  1、先查询二级缓存，因为二级缓存中可能会有其他程序已经查出来的数据，可以拿来直接使用。
+ *  2、如果二级缓存没有命中，再查询一级缓存。
+ *  3、如果一级缓存也没有命中，则查询数据库。
+ *  4、SqlSession关闭之后，一级缓存中的数据会写入二级缓存。
+ */
 public class TestCache {
 
     /**
