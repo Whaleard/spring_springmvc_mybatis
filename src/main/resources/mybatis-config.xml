@@ -19,6 +19,7 @@
         <!-- 开启延迟加载 -->
         <setting name="lazyLoadingEnabled" value="true"/>
         <!-- aggressiveLazyLoading默认值为false，无须设置 -->
+        <!-- cacheEnabled默认值为true，无须设置 -->
     </settings>
 
     <!-- 设置xml文件中resultType返回值的类型别名 -->
