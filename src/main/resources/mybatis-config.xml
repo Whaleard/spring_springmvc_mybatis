@@ -34,6 +34,11 @@
         <!-- 以包为单位，给包下所有的类型设置默认的类型别名，即类名且不区分大小写 -->
         <package name="com.mi.mybatis.entity" />
     </typeAliases>
+    
+    <plugins>
+        <!-- 设置分页插件 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 
     <!--
         environments：配置多个连接数据库的环境
