@@ -28,6 +28,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *          "header=value"：要求请求映射所匹配的请求必须携带header请求头信息且参数值为value。
  *          "header!=value"：要求请求映射所匹配的请求必须携带header请求头信息且参数值不为value。
  *          注：若当前请求满足@RequestMapping注解的value和method属性，但是不满足headers属性，此时页面显示404错误，即资源未找到。
+ *
+ * 注：
+ *  1、对于处理指定请求方式的控制器方法，SpringMVC中提供了@RequestMapping的派生注解
+ *      处理get请求的映射：@GetMapping
+ *      处理post请求的映射：@PostMapping
+ *      处理put请求的映射：@PutMapping
+ *      处理delete请求的映射：@DeleteMapping
+ *  2、常用的请求方式有get、post、put、delete
+ *      但是目前浏览器只支持get和post，若在form表单提交时，为method设置了其他请求方式的字符串（put或delete），则按照默认的请求方式get处理。
+ *      若要发送put和delete请求，则需要通过spring提供的过滤器HiddenHttpMethodFilter。
  */
 @Controller
 @RequestMapping("/requestMapping")
