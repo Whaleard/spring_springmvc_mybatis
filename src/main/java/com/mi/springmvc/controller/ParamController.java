@@ -21,6 +21,14 @@ public class ParamController {
 
     /**
      * servlet原生api：通过HttpServletRequest获取请求参数
+     *
+     * 转发：服务器内部直接调用资源处理请求，包括控制器方法及页面
+     * 重定向：服务器告诉客户端一个新的URL，客户端再发送新的请求
+     * 区别：
+     *  1、转发用于访问程序内的资源（WEB-INF目录下的文件或servlet方法），重定向用于访问互联网资源
+     *  2、转发是一次请求（服务器内部进行转发请求），重定向是两次请求
+     *  3、转发地址栏不变（服务器内部请求），重定向地址栏改变
+     *  4、转发可以在原servlet和目标资源之间共享request请求域数据，重定向不可以
      * @param request
      * @return
      */
@@ -31,15 +39,6 @@ public class ParamController {
         // 参数名相同时通过getParameterValues()获取字符串数组
         // String[] hobbies = request.getParameterValues("hobby");
         System.out.println("username: " + username + ", password: " + password);
-        /*
-            转发：服务器内部直接调用资源处理请求，包括控制器方法及页面
-            重定向：服务器告诉客户端一个新的URL，客户端再发送新的请求
-            区别：
-                1、转发用于访问程序内的资源（WEB-INF目录下的文件或servlet方法），重定向用于访问互联网资源
-                2、转发是一次请求（服务器内部进行转发请求），重定向是两次请求
-                3、转发地址栏不变（服务器内部请求），重定向地址栏改变
-                4、转发可以在原servlet和目标资源之间共享request请求域数据，重定向不可以
-         */
         // 转发
         // request.getRequestDispatcher("/param").forward(request, response);
         // 重定向
@@ -49,13 +48,22 @@ public class ParamController {
 
     /**
      * springmvc：通过控制器方法形参获取请求参数
+     *
+     * @RequestParam是将请求参数和控制器方法的形参创建映射关系
+     * @RequestParam注解一共有三个属性：
+     *  value：指定为形参赋值的请求参数的参数名。
+     *  required：设置是否必须传输此请求参数，默认值为true
+     *              若设置为true，当前请求必须传输value所指定的请求参数，若没有传输该请求参数，且没有设置defaultValue属性，则页面报400：Required String parameter 'xxx' is not present；
+     *              若设置为false，当前请求不是必须传输value所指定的请求参数，若没有传输，则注解所标识的形参的值为null。
+     *  defaultValue：不管required属性值为true或false，当value所指定的请求参数没有传输时，则使用默认值为形参赋值。
+     *
      * @param username
      * @param password
      * @param hobby
      * @return
      */
     @RequestMapping("/testParam")
-    public String testParam(@RequestParam("user_name") String username, String password, String[] hobby) {
+    public String testParam(@RequestParam(value = "user_name", required = false, defaultValue = "admin") String username, String password, String[] hobby) {
         // 出现多个同名的请求参数，可以在控制器方法的形参位置设置字符串类型或字符串数组类型接收
         // 若使用字符串类型的形参，则多个值通过“,“进行拼接
         System.out.println("username: " + username + ", password: " + password + ", hobby: " + Arrays.toString(hobby));
