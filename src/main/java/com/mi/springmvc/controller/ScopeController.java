@@ -26,16 +26,21 @@ public class ScopeController {
 
     /**
      * 使用ModelAndView向request域对象共享数据
+     *
+     * ModelAndView有Model和View的功能
+     *  Model主要用于向请求域共享数据
+     *  View主要用于设置视图，实现页面跳转
+     *
      * @return
      */
     @RequestMapping("/testModelAndView")
     public ModelAndView testModelAndView() {
-        ModelAndView mav = new ModelAndView();
+        ModelAndView mv = new ModelAndView();
         // 处理模型数据，即向请求域request中共享数据
-        mav.addObject("testRequestScope", "Hello,ModelAndView");
+        mv.addObject("testRequestScope", "Hello,ModelAndView");
         // 设置视图名称，也就是返回的页面名称
-        mav.setViewName("success");
-        return mav;
+        mv.setViewName("success");
+        return mv;
     }
 
     /**
