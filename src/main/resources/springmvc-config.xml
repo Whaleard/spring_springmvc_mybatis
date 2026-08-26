@@ -47,8 +47,11 @@
 
     <!--
         开放对静态资源的访问
-            工程内的web.xml会继承tomcat下的web.xml配置文件，由于当前工程的DispatcherServlet与tomcat的DefaultServlet都会拦截静态资源请求，所以DefaultServlet会被DispatcherServlet覆盖，从而导致静态资源无法访问（DispatcherServlet拦截请求后会去查找控制器，如果找不到则返回404）。
-            配置本标签后，当DispatcherServlet拦截所有请求导致容器默认Servlet失效时，将静态资源请求（如html/css/js/图片等）‌转发回Web容器（如Tomcat）的默认Servlet处理‌。
+            工程内的web.xml会继承tomcat下的web.xml配置文件，由于当前工程的DispatcherServlet与tomcat的DefaultServlet都会拦截静态资源请求，
+            所以DefaultServlet会被DispatcherServlet覆盖，从而导致静态资源无法访问（DispatcherServlet拦截请求后会去查找控制器，如果找不到则返回404）。
+
+            配置本标签后，会注册DefaultServletHttpRequestHandler和对应的SimpleUrlHandlerMapping。
+            当DispatcherServlet拦截所有请求导致容器默认Servlet失效时，将静态资源请求（如html/css/js/图片等）‌转发回Web容器（如Tomcat）的默认Servlet处理‌。
      -->
     <mvc:default-servlet-handler />
 
