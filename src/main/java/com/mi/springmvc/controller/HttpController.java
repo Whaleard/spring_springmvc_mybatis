@@ -59,6 +59,9 @@ public class HttpController {
 
     /**
      * 通过@ResponseBody响应浏览器数据
+     *
+     * @ResponseBody用于标识一个控制器方法，可以将该方法的返回值直接作为响应报文的响应体响应到浏览器
+     *
      * @return
      */
     @RequestMapping("/testResponseBody")
@@ -69,6 +72,13 @@ public class HttpController {
 
     /**
      * SpringMVC返回json类型
+     *
+     * @ResponseBody处理json的步骤：
+     *  1、导入jackson的依赖。
+     *  2、在SpringMVC的核心配置文件中开启mvc的注解驱动，此时在HandlerAdapter中会自动装配一个消息转换器MappingJackson2HttpMessageConverter，可以将响应到浏览器的java对象转换为json格式的字符串。
+     *  3、在处理器方法上使用@ResponseBody注解进行标识。
+     *  4、将java对象直接作为控制器方法的返回值返回，就会自动转换为json格式的字符串。
+     *
      * @return
      */
     @RequestMapping("/testResponseEntity")
