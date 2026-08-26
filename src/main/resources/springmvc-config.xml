@@ -55,7 +55,11 @@
      -->
     <mvc:default-servlet-handler />
 
-    <!-- 开启mvc的注解驱动 -->
+    <!--
+        开启mvc的注解驱动
+            在SpringMVC配置文件中单独使用<mvc:view-controller>或<mvc:default-servlet-handler>时，框架默认‌不会自动注册‌处理@Controller注解所需的Bean，导致所有基于注解的@RequestMapping路径映射失效。
+            配置本标签后，会注册RequestMappingHandlerMapping、RequestMappingHandlerAdapter等核心Bean，使注解映射生效。
+     -->
     <mvc:annotation-driven />
 
     <!-- 配置文件上传解析器，将上传的文件封装为MultipartFile -->
