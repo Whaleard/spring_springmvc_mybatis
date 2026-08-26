@@ -19,6 +19,9 @@ public class HttpController {
 
     /**
      * 通过@RequestBody注解获取请求体
+     *
+     * @RequestBody可以获取请求体，需要在控制器方法设置一个形参，使用@RequestBody进行标识，当前请求的请求体就会为当前注解所标识的形参赋值。
+     *
      * @param requestBody
      * @return
      */
