@@ -13,6 +13,8 @@ import java.io.IOException;
 /**
  * HttpMessageConverter，报文信息转换器，将请求报文转换为java对象，或将java对象转换为响应报文。
  * HttpMessageConverter提供了两个注解和两个类型：@RequestBody、@ResponseBody，RequestEntity、ResponseEntity
+ *
+ * @RestController注解是SpringMVC提供的一个复合注解，标识在控制器的类上，就相当于为类添加了@Controller注解，并且为其中的每个方法添加了@ResponseBody注解
  */
 @Controller
 public class HttpController {
@@ -33,6 +35,10 @@ public class HttpController {
 
     /**
      * 通过RequestEntity实体封装请求报文
+     *
+     * RequestEntity是封装请求报文的一种类型，需要在控制器方法的形参中设置该类型的形参，当前请求的请求报文就会赋值给该形参。
+     * 可以通过getHeaders()获取请求头信息，通过getBody()获取请求体信息。
+     *
      * @param requestEntity
      * @return
      */
