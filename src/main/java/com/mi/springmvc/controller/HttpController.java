@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * HttpMessageConverter，报文信息转换器，将请求报文转换为java对象，或将java对象转换为响应报文。
+ * HttpMessageConverter提供了两个注解和两个类型：@RequestBody、@ResponseBody，RequestEntity、ResponseEntity
+ */
 @Controller
 public class HttpController {
 
@@ -57,10 +61,6 @@ public class HttpController {
     @RequestMapping("/testResponseBody")
     @ResponseBody
     public String testResponseBody() {
-        /*
-            如果不添加@ResponseBody注解，则返回的字符串将作为视图名称被视图解析器解析，跳转到对应页面
-            添加@ResponseBody注解，则返回的字符串将作为响应体打印输出到客户端
-         */
         return "success";
     }
 
