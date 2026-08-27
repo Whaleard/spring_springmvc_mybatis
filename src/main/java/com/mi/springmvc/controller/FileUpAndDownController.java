@@ -19,6 +19,15 @@ import java.util.UUID;
 @Controller
 public class FileUpAndDownController {
 
+    /**
+     * 文件下载
+     *
+     * ResponseEntity用于控制器方法的返回值类型，该控制器方法的返回值就是响应到浏览器的响应报文。
+     *
+     * @param session
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/testDownloadFile")
     public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException {
         // 获取ServletContext对象
@@ -44,6 +53,13 @@ public class FileUpAndDownController {
         return responseEntity;
     }
 
+    /**
+     * 文件上传
+     * @param sourceFile
+     * @param session
+     * @return
+     * @throws IOException
+     */
     @RequestMapping("/testUploadFile")
     public String testUploadFile(MultipartFile sourceFile, HttpSession session) throws IOException {
         // 获取上传文件的文件名
